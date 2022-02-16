@@ -1,0 +1,61 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.633272",
+   "Default View_TopLeft":"-1045,-17",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x -270 -y -40 -defaultsOSRD
+preplace port port-id_reset_rtl_0 -pg 1 -lvl 0 -x -270 -y -120 -defaultsOSRD
+preplace port port-id_start -pg 1 -lvl 0 -x -270 -y 70 -defaultsOSRD
+preplace portBus Euc_out -pg 1 -lvl 3 -x 710 -y 240 -defaultsOSRD
+preplace portBus A3 -pg 1 -lvl 0 -x -270 -y 190 -defaultsOSRD
+preplace portBus A2 -pg 1 -lvl 0 -x -270 -y 160 -defaultsOSRD
+preplace portBus A1 -pg 1 -lvl 0 -x -270 -y 110 -defaultsOSRD
+preplace portBus A4 -pg 1 -lvl 0 -x -270 -y 220 -defaultsOSRD
+preplace portBus A5 -pg 1 -lvl 0 -x -270 -y 260 -defaultsOSRD
+preplace portBus A6 -pg 1 -lvl 0 -x -270 -y 290 -defaultsOSRD
+preplace portBus A7 -pg 1 -lvl 0 -x -270 -y 320 -defaultsOSRD
+preplace portBus B1 -pg 1 -lvl 0 -x -270 -y 380 -defaultsOSRD
+preplace portBus B2 -pg 1 -lvl 0 -x -270 -y 410 -defaultsOSRD
+preplace portBus B3 -pg 1 -lvl 0 -x -270 -y 440 -defaultsOSRD
+preplace portBus B4 -pg 1 -lvl 0 -x -270 -y 470 -defaultsOSRD
+preplace portBus B5 -pg 1 -lvl 0 -x -270 -y 500 -defaultsOSRD
+preplace portBus B6 -pg 1 -lvl 0 -x -270 -y 530 -defaultsOSRD
+preplace portBus B7 -pg 1 -lvl 0 -x -270 -y 570 -defaultsOSRD
+preplace portBus B8 -pg 1 -lvl 0 -x -270 -y 610 -defaultsOSRD
+preplace portBus A8 -pg 1 -lvl 0 -x -270 -y 350 -defaultsOSRD
+preplace inst Euc_res_0 -pg 1 -lvl 2 -x 520 -y 280 -defaultsOSRD
+preplace inst clk_wiz -pg 1 -lvl 1 -x -150 -y -50 -defaultsOSRD
+preplace inst rst_clk_wiz_100M -pg 1 -lvl 2 -x 520 -y -80 -defaultsOSRD
+preplace netloc Euc_res_0_ap_return 1 2 1 690 240n
+preplace netloc clk_1 1 0 1 N -40
+preplace netloc clk_wiz_clk_out1 1 1 1 -10 -120n
+preplace netloc clk_wiz_locked 1 1 1 N -40
+preplace netloc reset_rtl_0_1 1 0 2 -250 -120 -20J
+preplace netloc rst_clk_wiz_100M_peripheral_reset 1 1 2 0 -180 690
+preplace netloc A3_1 1 0 2 NJ 190 -40
+preplace netloc A1_1 1 0 2 NJ 110 -20
+preplace netloc A2_1 1 0 2 NJ 160 -30
+preplace netloc A4_1 1 0 2 NJ 220 -50
+preplace netloc A5_1 1 0 2 NJ 260 -60
+preplace netloc A6_1 1 0 2 NJ 290 -30
+preplace netloc A7_1 1 0 2 NJ 320 N
+preplace netloc B1_1 1 0 2 NJ 380 -60
+preplace netloc A8_1 1 0 2 NJ 350 -30
+preplace netloc B2_1 1 0 2 NJ 410 -50
+preplace netloc B3_1 1 0 2 NJ 440 -40
+preplace netloc B4_1 1 0 2 NJ 470 -30
+preplace netloc B5_1 1 0 2 NJ 500 -20
+preplace netloc B6_1 1 0 2 NJ 530 -10
+preplace netloc B7_1 1 0 2 NJ 570 0
+preplace netloc B8_1 1 0 2 NJ 610 10
+preplace netloc start_1 1 0 2 NJ 70 -20
+levelinfo -pg 1 -270 -150 520 710
+pagesize -pg 1 -db -bbox -sgen -390 -280 850 630
+"
+}
+{
+   "da_board_cnt":"4",
+   "da_clkrst_cnt":"2"
+}
