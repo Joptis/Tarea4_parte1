@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module Main#(parameter N = 1024, numberbit = 8)(
+module Main#(parameter N = 8, numberbit = 8)(
     input logic clkin,
     input logic rx,
     output logic tx,

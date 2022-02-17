@@ -87,6 +87,7 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
     );  
   
     //módulo para generar el valor de manhattan      
+    /*
       Man_New#(.N(N)) DUT(
         .clk(clkin),
         .vectorA(VectorA),
@@ -95,13 +96,60 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
       
      );
      
-     always_ff @(posedge clkin) begin
+     */
+    //Modulo para el nuevo modulo euclidiano
+   logic [31:0] Euc_out;
+   logic Euc_available;
+   logic Euc_done;
+   
+   
+  /*  design_1 Euclin
+   (
+    .A1(VectorA[0]),
+    .A2(VectorA[1]),
+    .A3(VectorA[2]),
+    .A4(VectorA[3]),
+    .A5(VectorA[4]),
+    .A6(VectorA[5]),
+    .A7(VectorA[6]),
+    .A8(VectorA[7]),
+    .B1(VectorB[0]),
+    .B2(VectorB[1]),
+    .B3(VectorB[2]),
+    .B4(VectorB[3]),
+    .B5(VectorB[4]),
+    .B6(VectorB[5]),
+    .B7(VectorB[6]),
+    .B8(VectorB[7]),
+    .Euc_out(Euc_out),
+    .Euc_available(Euc_available),
+    .Euc_done(Euc_done),
+    .clk(clkin),
+    .reset_rtl_0(1'b0),
+    .start(etrigger)
+    );
+    */
+    
+   /*  always_ff @(posedge clkin) begin
         result_tx_save[0] <=  result_tx[18:16];
         result_tx_save[1] <=  result_tx[15:8];
         result_tx_save[2] <=  result_tx[7:0];
-    end	
-      
-      
+    end*/
+    
+    always_ff @(posedge clkin) begin
+        result_tx_save[0]<=Euc_out;
+    end		
+   /*To_Host_FSM#(.N(1),.INCREMENT_DELAY_CONTINUOUS(220)) Euc_TX(
+    .reset(1'b0),
+    .clk(clkin),
+    .tx_busy(tx_busy),
+	.comand(etrigger),	
+	.vector(result_tx_save[0:0]),
+	.vector_tx(result_euc),
+	.tx_start(tx_start_e)
+    );   
+    */
+   /*   
    To_Host_FSM#(.N(3),.INCREMENT_DELAY_CONTINUOUS($clog2(N)-1)) Man_TX(
     .reset(1'b0),
     .clk(clkin),
@@ -111,7 +159,7 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
 	.vector_tx(result_man),
 	.tx_start(tx_start_m)
     ); 
-    
+    */
     always_comb begin
 		case (command) 
 			8'd3: begin 
@@ -132,6 +180,10 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
 			end
 			8'd7: begin 
 				tx_data =result_man;
+				bcd=result_tx;
+			end
+			8'd8: begin 
+				tx_data =0;
 				bcd=result_tx;
 			end
 			default: begin

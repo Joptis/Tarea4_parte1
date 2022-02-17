@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xB89640411C74C9F0",
+      "boundary_crc": "0xE6D5A73C622277ED",
       "device": "xc7a100tcsg324-1",
       "gen_directory": "../../../../IP_block_test.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -147,6 +147,12 @@
       },
       "start": {
         "direction": "I"
+      },
+      "Euc_available": {
+        "direction": "O"
+      },
+      "Euc_done": {
+        "direction": "O"
       }
     },
     "components": {
@@ -264,6 +270,18 @@
         "ports": [
           "B8",
           "Euc_res_0/in_vec2_7"
+        ]
+      },
+      "Euc_res_0_ap_done": {
+        "ports": [
+          "Euc_res_0/ap_done",
+          "Euc_done"
+        ]
+      },
+      "Euc_res_0_ap_ready": {
+        "ports": [
+          "Euc_res_0/ap_ready",
+          "Euc_available"
         ]
       },
       "Euc_res_0_ap_return": {
