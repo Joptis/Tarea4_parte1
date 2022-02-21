@@ -87,7 +87,7 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
     );  
   
     //módulo para generar el valor de manhattan      
-    /*
+    
       Man_New#(.N(N)) DUT(
         .clk(clkin),
         .vectorA(VectorA),
@@ -96,14 +96,14 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
       
      );
      
-     */
+    
     //Modulo para el nuevo modulo euclidiano
    logic [31:0] Euc_out;
    logic Euc_available;
    logic Euc_done;
    
    
-  /*  design_1 Euclin
+    design_1 Euclin
    (
     .A1(VectorA[0]),
     .A2(VectorA[1]),
@@ -128,7 +128,7 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
     .reset_rtl_0(1'b0),
     .start(etrigger)
     );
-    */
+    
     
    /*  always_ff @(posedge clkin) begin
         result_tx_save[0] <=  result_tx[18:16];
@@ -139,16 +139,16 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
     always_ff @(posedge clkin) begin
         result_tx_save[0]<=Euc_out;
     end		
-   /*To_Host_FSM#(.N(1),.INCREMENT_DELAY_CONTINUOUS(220)) Euc_TX(
+   To_Host_FSM#(.N(1),.INCREMENT_DELAY_CONTINUOUS(400)) Euc_TX(
     .reset(1'b0),
     .clk(clkin),
     .tx_busy(tx_busy),
-	.comand(etrigger),	
+	.comand(Euc_done),	
 	.vector(result_tx_save[0:0]),
 	.vector_tx(result_euc),
 	.tx_start(tx_start_e)
     );   
-    */
+    
    /*   
    To_Host_FSM#(.N(3),.INCREMENT_DELAY_CONTINUOUS($clog2(N)-1)) Man_TX(
     .reset(1'b0),
@@ -183,7 +183,7 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
 				bcd=result_tx;
 			end
 			8'd8: begin 
-				tx_data =0;
+				tx_data =Euc_out;
 				bcd=result_tx;
 			end
 			default: begin

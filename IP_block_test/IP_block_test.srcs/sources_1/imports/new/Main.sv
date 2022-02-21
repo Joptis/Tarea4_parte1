@@ -57,7 +57,7 @@ module Main#(parameter N = 8, numberbit = 8)(
     );
   // Uart Moldule  Felipe Veas <felipe.veasv [at] usm.cl 
  uart_basic #(
-.CLK_FREQUENCY(90000000),
+.CLK_FREQUENCY(100000000),
 .BAUD_RATE(115200)
  ) uart_basic(
 .clk(clk),
