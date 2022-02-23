@@ -5,6 +5,6 @@
 #include <stdio.h>
 
 
-int  EucHW (T *A, T *B, float m);
+T  EucHW (T A[M], T B[M], bool flag);
 
 #endif

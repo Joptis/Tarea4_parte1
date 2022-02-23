@@ -1,24 +1,33 @@
 #include "EucSW.h"
 #include <math.h>
 #include <cmath>
+#include <iostream>
+#include <stdbool.h>
+using namespace std;
 
 
-int EucSW (T A[M], T B[M],  float m){
-	T delta, sumatoria, C;
-	sumatoria=0.0;
+T EucSW (T A[M], T B[M],bool  flag){
+	T delta, sumatoria = 0, C;
 
 
-	          loop: for (int dates = 0; dates < m; dates++) {
+	if (flag==1) {
+	          loop: for (int dates = 0; dates < M; dates++) {
 
 	              delta=(T)(A[dates]-B[dates]);
-	              printf("delta= %f\n",delta);
+	             cout <<  "delta_SW = " << delta << endl;
 	              sumatoria+= (T)(delta*delta);
-	              printf("sumatoria= %f\n",sumatoria);
+	              cout <<"Results of sumatoria_SW: "<< dec << sumatoria << endl;
+
 
 	         }
-			 C = sqrt((float)sumatoria);
-			 printf("C= %f\n",C);
-			 return(C);
+			 C = sqrt((T)sumatoria);
+		//	 cout <<"Results of C_SW: "<< dec << C << endl;
 
-    
+   return((T) C );
+//	 cout <<"Results of C_HW: "<< dec << C << endl;
+	}
+	else{
+	 return((T)C);
+}
+
 }

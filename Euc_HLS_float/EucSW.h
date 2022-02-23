@@ -4,6 +4,6 @@
 #include "specs.h"
 #include <stdio.h>
 
-int EucSW(T *A, T *B, float m);
+T EucSW(T *A, T *B, bool flag);
 
 #endif

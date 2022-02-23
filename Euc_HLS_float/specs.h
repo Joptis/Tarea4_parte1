@@ -1,7 +1,7 @@
 #ifndef SPECS_H
 #define SPECS_H
 
-typedef  float T;
+typedef  int T;
 #define M 8
 
 #endif

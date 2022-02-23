@@ -1,12 +1,9 @@
-
-#include <iostream>
 //#include <iomanip>
 #include <math.h>
-
 #include "specs.h"
 #include "EucHW.h"
 #include "EucSW.h"
-
+#include <iostream>
 using namespace std;
 
 void genRandArray(T min, T max, int size, T *array);
@@ -17,10 +14,7 @@ int compare(T gold, T result, T th);
 
 int main (){
 	int errors = 0;
-	int tests = 2;
-//	M = 8;
-	
-
+	int tests = 5;
 	
 	T A[M], B[M];
 	T C_HW, C_SW;
@@ -31,25 +25,25 @@ int main (){
 	T max = 100;
 	cout << "Data Number: ["<< M <<"]"  << endl;
 	for (int i=0; i<tests; i++){
-	//	genRandArray(min, max, M, A);
-	//	genRandArray(min, max, M, B);
-		T A[8]={1,2,3,4,5,6,7,8};
-		T B[8]={8,7,6,5,4,3,2,1};
+		genRandArray(min, max, M, A);
+		genRandArray(min, max, M, B);
+	//	T A[8]={1,2,3,4,5,6,7,8};
+	//	T B[8]={8,7,6,5,4,3,2,1};
 
 
-		C_HW = EucHW (A, B,  M);
-		C_SW = EucSW (A, B,  M);
+		C_HW = EucHW (A, B,false);
+		C_SW = EucSW (A, B,false);
 
 		errors += compare(C_SW, C_HW,  th);
-		cout <<"Results of A0: "<< dec << A[0] << endl;
-		cout <<"Results of B0: "<< dec << B[0] << endl;
+	//	cout <<"Results of A0: "<< dec << A[0] << endl;
+	//	cout <<"Results of B0: "<< dec << B[0] << endl;
 		cout <<"Results of C_SW: "<< dec << C_SW << endl;
 		cout <<"Results of C_HW: "<< dec << C_HW << endl;
 	}
 	cout <<"Number of errors: " << errors << endl;
-	/*if (errors){
+	if (errors){
 		return 1;
-	}*/
+	}
 
 
 	return 0;
