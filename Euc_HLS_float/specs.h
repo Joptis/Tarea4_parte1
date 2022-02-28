@@ -2,6 +2,6 @@
 #define SPECS_H
 
 typedef  char T;
-#define M 8
+#define M 1024
 
 #endif
