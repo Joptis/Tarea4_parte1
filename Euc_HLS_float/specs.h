@@ -1,7 +1,7 @@
 #ifndef SPECS_H
 #define SPECS_H
 
-typedef  int T;
+typedef  char T;
 #define M 8
 
 #endif

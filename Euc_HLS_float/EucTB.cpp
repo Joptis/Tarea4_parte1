@@ -14,7 +14,7 @@ int compare(T gold, T result, T th);
 
 int main (){
 	int errors = 0;
-	int tests = 5;
+	int tests = 1;
 	
 	T A[M], B[M];
 	T C_HW, C_SW;
@@ -31,14 +31,15 @@ int main (){
 	//	T B[8]={8,7,6,5,4,3,2,1};
 
 
-		C_HW = EucHW (A, B,false);
-		C_SW = EucSW (A, B,false);
+		C_HW = EucHW (A, B,true);
+		C_SW = EucSW (A, B,true);
 
 		errors += compare(C_SW, C_HW,  th);
 	//	cout <<"Results of A0: "<< dec << A[0] << endl;
 	//	cout <<"Results of B0: "<< dec << B[0] << endl;
-		cout <<"Results of C_SW: "<< dec << C_SW << endl;
-		cout <<"Results of C_HW: "<< dec << C_HW << endl;
+	//	cout <<"Results of C_SW: "<< dec << C_SW << endl;
+
+
 	}
 	cout <<"Number of errors: " << errors << endl;
 	if (errors){
