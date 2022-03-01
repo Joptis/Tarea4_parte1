@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module Main#(parameter N = 8, numberbit = 8)(
+module Main#(parameter N = 1024, numberbit = 8)(
     input logic clkin,
     input logic rx,
     output logic tx,
@@ -57,7 +57,7 @@ module Main#(parameter N = 8, numberbit = 8)(
     );
   // Uart Moldule  Felipe Veas <felipe.veasv [at] usm.cl 
  uart_basic #(
-.CLK_FREQUENCY(100000000),
+.CLK_FREQUENCY(90000000),
 .BAUD_RATE(115200)
  ) uart_basic(
 .clk(clk),
