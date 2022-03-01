@@ -28,7 +28,7 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
    
    
    logic [23:0] result_tx;
-   logic [23:0] result_tx2;
+   logic [31:0] result_tx2;
    logic tx_startm;
    
    logic [numberbit-1:0] result_tx_save [2:0];
@@ -2172,7 +2172,7 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
         result_tx_save2[2] <=  result_tx2[7:0];
     end	
     
-     To_Host_FSM#(.N(3),.INCREMENT_DELAY_CONTINUOUS($clog2(N)-1)) Euc_TX(
+     To_Host_FSM#(.N(3),.INCREMENT_DELAY_CONTINUOUS(400)) Euc_TX(
     .reset(1'b0),
     .clk(clkin),
     .tx_busy(tx_busy),

@@ -9,14 +9,15 @@ using namespace std;
 
 
 
-T EucHW (T A[M], T B[M], bool  flag){
+int EucHW (T A[M], T B[M], bool  flag){
 //	#pragma HLS INTERFACE ap_memory port=return
 	//int dimm = M;
     //#pragma HLS ARRAY_PARTITION variable=A complete
 	//#pragma HLS ARRAY_PARTITION variable=B complete
 	#pragma HLS ARRAY_PARTITION variable=A  dim=1
     #pragma HLS ARRAY_PARTITION variable=B  dim=1
-	T delta, sumatoria = 0, C=0;
+	T delta, sumatoria = 0;
+	int C=0;
 
 	if (flag==1) {
           loop: for (int dates = 0; dates < M; dates++) {
@@ -31,12 +32,12 @@ T EucHW (T A[M], T B[M], bool  flag){
               sumatoria+= delta*delta;
            //   cout <<"Results of sumatoria_HW: "<< dec << sumatoria << endl;
           }
-          C = sqrt((T)sumatoria);
-         return((T) C);
+          C = sqrt((int)sumatoria);
+         return((int) C);
 	//	 cout <<"Results of C_HW: "<< dec << C << endl;
 	}
     else{
-		 return((T)C);
+		 return((int)C);
 	}
  
 }

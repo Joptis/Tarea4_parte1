@@ -5,6 +5,6 @@
 #include <stdio.h>
 
 
-T  EucHW (T A[M], T B[M], bool flag);
+int EucHW (T A[M], T B[M], bool flag);
 
 #endif

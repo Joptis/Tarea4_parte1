@@ -103,8 +103,8 @@ avgVec_device = command2dev(avgVec, COM_port,N);
  % Los resultados _diff deberian ser 0 (o cercanos, dependiendo de su
 % decision de diseno en el diseno del coprocesador). Si no es 0, indique
 % claramente por que en su informe.
-sumVec_diff = sum(sumVec_host - sumVec_device);
-avgVec_diff = sum(avgVec_host - avgVec_device);
+sumVec_diff = sum(sumVec_host - sumVec_device.');
+avgVec_diff = sum(avgVec_host - avgVec_device.');
 man_diff = man_host - man_device;
 euc_diff = euc_host - euc_device;
 
