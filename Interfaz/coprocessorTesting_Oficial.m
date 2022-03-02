@@ -7,8 +7,8 @@ N=1024   ;  % define el numero de elementos de cada vector
 
 %Genera vectores A y B de 1024 elementos con numeros positivos 
 %(puede adaptarse facilmente si usan negativos y positivos).
-A=ceil(rand(N,1)*100);
-B=ceil(rand(N,1)*100);
+A=ceil(rand(N,1)*50);
+B=ceil(rand(N,1)*50);
 
 % for i=1:N
 %    if (B(i)>A(i))
@@ -79,8 +79,8 @@ VecB_device = command2dev(readVec_B, COM_port,N);
 
 % calcula la suma elemento a elemento de los vectores A y B previamente
 % almacenados.
-sumVec_device = command2dev(sumVec, COM_port,N);
-avgVec_device = command2dev(avgVec, COM_port,N);
+%sumVec_device = command2dev(sumVec, COM_port,N);
+%avgVec_device = command2dev(avgVec, COM_port,N);
 
 % Comando para ejecutar operacion de la distancia de Manhattan.
 %  write(COM_port,eucDist,'uint8'); 

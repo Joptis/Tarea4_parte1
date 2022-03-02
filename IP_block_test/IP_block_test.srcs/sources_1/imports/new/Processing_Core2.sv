@@ -28,7 +28,7 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
    
    
    logic [23:0] result_tx;
-   logic [31:0] result_tx2;
+   logic [15:0] result_tx2;
    logic tx_startm;
    
    logic [numberbit-1:0] result_tx_save [2:0];
@@ -59,16 +59,16 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
 	.tx_start(tx_start_b)
     );   
     
-  	always_comb begin
+  	/*always_comb begin
 	for (i=0; i < N; i++)begin 
 			Res_comb_SUM[i] = VectorA[i] + VectorB[i];
 			Res_comb_AVG[i] = (VectorA[i] + VectorB[i])>>1;
 	end		
-	end
+	end*/
 	
 	
 	
-	To_Host_FSM#(.N(N)) TX_SUM(
+	/*To_Host_FSM#(.N(N)) TX_SUM(
     .reset(1'b0),
     .clk(clkin),
     .tx_busy(tx_busy),
@@ -87,7 +87,7 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
 	.vector_tx(result_avg),
 	.tx_start(tx_start_p)
     );  
-  
+  */
     //módulo para generar el valor de manhattan      
    /*   Man_New#(.N(N)) DUT(
         .clk(clkin),
@@ -2167,12 +2167,12 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
 );
 
      always_ff @(posedge clkin) begin
-        result_tx_save2[0] <=  result_tx2[18:16];
+        result_tx_save2[0] <=  0;
         result_tx_save2[1] <=  result_tx2[15:8];
         result_tx_save2[2] <=  result_tx2[7:0];
     end	
     
-     To_Host_FSM#(.N(3),.INCREMENT_DELAY_CONTINUOUS(400)) Euc_TX(
+     To_Host_FSM#(.N(3),.INCREMENT_DELAY_CONTINUOUS(1500)) Euc_TX(
     .reset(1'b0),
     .clk(clkin),
     .tx_busy(tx_busy),

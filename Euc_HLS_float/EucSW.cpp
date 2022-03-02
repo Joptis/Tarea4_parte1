@@ -6,8 +6,10 @@
 using namespace std;
 
 
-T EucSW (T A[M], T B[M],bool  flag){
-	T delta, sumatoria = 0, C;
+res_type EucSW (array_type A[M], array_type B[M],bool  flag){
+	array_type delta;
+	res_type sumatoria = 0;
+	res_type C;
 
 	for (int dates = 0; dates < M; dates++) {
 	cout <<".A_"<<dates<<"(VectorA["<<dates<<"]),"<< endl;
@@ -20,21 +22,21 @@ T EucSW (T A[M], T B[M],bool  flag){
 	if (flag==1) {
 	          loop: for (int dates = 0; dates < M; dates++) {
 
-	              delta=(T)(A[dates]-B[dates]);
+	              delta=(A[dates]-B[dates]);
 	            // cout <<  "delta_SW = " << delta << endl;
-	              sumatoria+= (T)(delta*delta);
+	              sumatoria+= (res_type)(delta*delta);
 	             // cout <<"Results of sumatoria_SW: "<< dec << sumatoria << endl;
 
 
 	         }
-			 C = sqrt((T)sumatoria);
+			 C = sqrt((res_type)sumatoria);
 
 
-   return((T) C );
+   return((res_type) C );
 //	 cout <<"Results of C_HW: "<< dec << C << endl;
 	}
 	else{
-	 return((T)C);
+	 return((res_type)C);
 }
 
 }

@@ -4,6 +4,6 @@
 #include "specs.h"
 #include <stdio.h>
 
-T EucSW(T *A, T *B, bool flag);
+res_type EucSW(array_type *A, array_type *B, bool flag);
 
 #endif
