@@ -18,8 +18,9 @@ Cosa del cole. El formato de este readme fue realizado mediante la ayuda del gen
 
 Para ejecutar el código presente en este repositorio, se requiere previamente instalar los siguientes programas:
 
-Vitis HLS (Opcional): Herramienta que compila el código de alto nivel y lo exporta a un bloque IP para su uso en Vivado. Si bien no es un requisito tenerlo instalado, ya que el repositorio posee el archivo exportado por Vitis HLS, es recomendable si se busca verificar el funcionamiento o en su defecto entender de mejor manera el código.
-Vivado: Herramienta para realizar la síntesis e implementación de los códigos escritos en lenguaje SystemVerilog a la tarjeta FPGA a utilizar.
+- Vitis HLS (Opcional): Herramienta que compila el código de alto nivel y lo exporta a un bloque IP para su uso en Vivado. Si bien no es un requisito tenerlo instalado, ya que el repositorio posee el archivo exportado por Vitis HLS, es recomendable si se busca verificar el funcionamiento o en su defecto entender de mejor manera el código.
+
+- Vivado: Herramienta para realizar la síntesis e implementación de los códigos escritos en lenguaje SystemVerilog a la tarjeta FPGA a utilizar.
 
 La versión utilizada para ambos programas corresponde al build 2021.1.
 
@@ -27,8 +28,12 @@ IMPORTANTE: Es posible que hasta la fecha Vitis HLS tenga problemas para exporta
 
 
 ### Instalación
-usarme como asa  asi
 
+1. Clonar el repositorio a un directorio de su elección. Se puede realizar, por ejemplo, con el siguiente comando en terminal linux:
+
+```
+git clone https://github.com/Joptis/Tarea4_parte1
+```
 ### Cómo usar
 debes tomar cosos
 
