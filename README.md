@@ -1,32 +1,32 @@
 # High-Level Synthesis en FGPA Nexys-4DDR
 ----
 
-<a href="https://img.shields.io/badge/License-undefined-brightgreen"><img src="https://img.shields.io/badge/License-undefined-brightgreen"></a>
+<a href="https://img.shields.io/badge/License-undefined-brightgreen"><img src="https://img.shields.io/badge/License-MIT-brightgreen"></a>
 
-## Table of Contents
-- [Description](#description)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contribution](#contribution)
-- [Test Instructions](#test-instructions)
-- [Contact Information](#contact-information)
+## Tabla de contenidos
+- [Description](#descripcion)
+- [Installation](#installacion)
+- [Cómo usar](#como-usar)
+- [Contribución](#contribucion)
+- [Test Instructions](#resultados-obtenidos)
+- [Información de Contacto](#informacion-de-contacto)
 
-### Description
-Cosa del cole
+### Descripción
+Cosa del cole. El formato de este readme fue realizado mediante la ayuda del generador escrito por Kfields91, presente en el repositorio que se encuentra [aquí](https://github.com/Kfields91/README-Generator)
 
-### Installation
+### Instalación
 usarme como asa  asi
 
-### Usage
+### Cómo usar
 debes tomar cosos
 
-### Contribution
+### Contribución
 Si buscas contribuir al repositorio o para realizar consultas del codigo
 
-### Test-Instructions
+### Resultados obtenidos
 Para probar el cÃ³digo debes
 
-### Contact-Information
+### Informacion de contacto
 [Github Profile](https://github.com/Joptis)
-jose.cayo.14@sansano.usm.cl
+           jose.cayo.14@sansano.usm.cl
 
