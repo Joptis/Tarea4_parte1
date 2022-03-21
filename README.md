@@ -22,7 +22,9 @@ Para ejecutar el código presente en este repositorio, se requiere previamente in
 
 - Vivado: Herramienta para realizar la síntesis e implementación de los códigos escritos en lenguaje SystemVerilog a la tarjeta FPGA a utilizar.
 
-La versión utilizada para ambos programas corresponde al build 2021.1.
+- Matlab: Herramienta utilizada para la implementación de la interfaz que establece la comunicación UART con la tarjeta, lo cual incluye envio y recibo de datos, a la vez de ejecutar las operaciones vectoriales. Se requiere instalar la versión R2019b o superior. No se garantiza el funcionamiento en versiones más antiguas.
+
+La versión utilizada para Vitis HLS y Vivado corresponde al build 2021.1.
 
 IMPORTANTE: Es posible que hasta la fecha Vitis HLS tenga problemas para exportar a Bloque IP debido a un problema denominado "New Year's bug". Para solucionarlo, se deben seguir los pasos estipulados [aquí](https://support.xilinx.com/s/article/76960?language=en_US).
 
