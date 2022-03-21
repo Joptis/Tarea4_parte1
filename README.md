@@ -37,7 +37,9 @@ IMPORTANTE: Es posible que hasta la fecha Vitis HLS tenga problemas para exporta
 git clone https://github.com/Joptis/Tarea4_parte1
 ```
 ### Cómo usar
-debes tomar cosos
+Imagenes para draft
+ 
+
 
 ### Contribución
 Si buscas contribuir al repositorio o para realizar consultas del codigo

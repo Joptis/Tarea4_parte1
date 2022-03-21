@@ -1,5 +1,0 @@
-Al intentar exportar el bloque IP para vivado, se percata de la existencia de un bug de "Año nuevo". Una forma de solucionarlo se encuentra dentro de este enlace:
-
-https://support.xilinx.com/s/question/0D52E00006uyTa5SAE/error-2201022317-is-an-invalid-argument-please-specify-an-integer-value?language=en_US
-
-https://support.xilinx.com/s/article/76960?language=en_US
