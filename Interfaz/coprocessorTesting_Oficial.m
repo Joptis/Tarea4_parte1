@@ -7,8 +7,8 @@ N=1024   ;  % define el numero de elementos de cada vector
 
 %Genera vectores A y B de 1024 elementos con numeros positivos 
 %(puede adaptarse facilmente si usan negativos y positivos).
-A=ceil(rand(N,1)*50);
-B=ceil(rand(N,1)*50);
+A=ceil(rand(N,1)*100);
+B=ceil(rand(N,1)*100);
 
 % for i=1:N
 %    if (B(i)>A(i))
@@ -79,22 +79,22 @@ VecB_device = command2dev(readVec_B, COM_port,N);
 
 % calcula la suma elemento a elemento de los vectores A y B previamente
 % almacenados.
-%sumVec_device = command2dev(sumVec, COM_port,N);
-%avgVec_device = command2dev(avgVec, COM_port,N);
+sumVec_device = command2dev(sumVec, COM_port,N);
+avgVec_device = command2dev(avgVec, COM_port,N);
 
 % Comando para ejecutar operacion de la distancia de Manhattan.
-%  write(COM_port,eucDist,'uint8'); 
-%  man_device=read(COM_port,3,'uint8');
-%  tmp=dec2bin( [man_device(1) ; man_device(2) ; man_device(3)] );
-%  man_device=reshape(tmp.',1,[]);
-%  man_device=bin2dec(man_device);
+ write(COM_port,eucDist,'uint8'); 
+ man_device=read(COM_port,3,'uint8');
+ tmp=dec2bin( [man_device(1) ; man_device(2) ; man_device(3)],8 );
+ man_device=reshape(tmp.',1,[]);
+ man_device=bin2dec(man_device);
  
  %man_device = converter(man_device);
 % uiwait(msgbox('Operacion manhatan completa. Valor mostrado en BNC','Aviso','modal'))
 % Comando para ejecutar operacion de  la distancia euclideana. 
  write(COM_port,manDist,'uint8');
  euc_device=read(COM_port,3,'uint8');
- tmp=dec2bin( [euc_device(1) ; euc_device(2) ; euc_device(3)] );
+ tmp=dec2bin( [euc_device(1) ; euc_device(2) ; euc_device(3)],8 );
  euc_device=reshape(tmp.',1,[]);
  euc_device=bin2dec(euc_device);
 % uiwait(msgbox('Operacion euclediana completa. Valor mostrado en BNC','Aviso','modal'))
@@ -103,6 +103,7 @@ VecB_device = command2dev(readVec_B, COM_port,N);
  % Los resultados _diff deberian ser 0 (o cercanos, dependiendo de su
 % decision de diseno en el diseno del coprocesador). Si no es 0, indique
 % claramente por que en su informe.
+euc_diff = euc_host - euc_device;
 sumVec_diff = sum(sumVec_host - sumVec_device.');
 avgVec_diff = sum(avgVec_host - avgVec_device.');
 man_diff = man_host - man_device;

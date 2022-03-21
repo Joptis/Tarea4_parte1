@@ -23,10 +23,10 @@ res_type EucHW (array_type A[M], array_type B[M], bool  flag){
 	if (flag==1) {
           loop: for (int dates = 0; dates < M; dates++) {
       //    #pragma HLS LOOP_TRIPCOUNT max=1024
-			 #pragma HLS UNROLL factor 16
+			 //#pragma HLS UNROLL factor=64
 	 //      #pragma HLS UNROLL  factor=16
 	 //       #pragma HLS pipeline  enable_flush rewind
-		//	#pragma HLS pipeline
+			#pragma HLS pipeline
               delta= A[dates]-B[dates];
 
            //  cout <<"Results of delta_HW: "<< dec << delta << endl;
