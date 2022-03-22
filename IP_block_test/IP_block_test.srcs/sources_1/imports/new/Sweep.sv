@@ -1,5 +1,15 @@
 `timescale 1ns / 1ps
 
+/******************************************************* 
+Sweep.sv
+Creado por: Reiner López y José Cayo  
+Funcionalidad:
+
+Permite mostrar cada dígito del numero entregado al display de
+7 segmento en su magnitud correspondiente
+
+********************************************************/
+
 module Sweep(
 	input logic clk,
 	input logic [31:0]  Data,

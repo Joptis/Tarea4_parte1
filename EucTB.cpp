@@ -38,7 +38,10 @@ int compare(T gold, T result, T th);
 * Creada por		: Reiner López
 * Descripcion		: Realiza el llamado de las demás funciones para realizar
 * la verificación funcional del codigo con y sin pragmas. Tambien realiza un cierto
-* número de tests en base al valor de la variable 'tests'
+* número de tests en base al valor de la variable 'tests'.
+*
+* Adicionalmente, se generan textos de salida para ayudar en la instanciación del módulo IP generado,
+* concretamente a la conexión de los elementos de los vectores.
 **************************************************/
 
 
@@ -60,6 +63,14 @@ int main (){
 
 	/*Longitud de mis vectores*/
 	cout << "Data Number: ["<< M <<"]"  << endl;
+
+	/*Generacion de ayuda de instancia para el módulo IP. Se encuentran en el archivo .log generado*/
+	for (int dates = 0; dates < M; dates++) {
+		cout <<".A_"<<dates<<"(VectorA["<<dates<<"]),"<< endl;
+	}
+	for (int dates = 0; dates < M; dates++) {
+		cout <<".B_"<<dates<<"(VectorB["<<dates<<"]),"<< endl;
+	}
 
 	/*Ciclo para ejecutar los tests*/
 	for (int i=0; i<tests; i++){

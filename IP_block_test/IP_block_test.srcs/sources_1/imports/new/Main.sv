@@ -1,4 +1,15 @@
 `timescale 1ns / 1ps
+
+
+/******************************************************* 
+Main.sv
+Creado por: Reiner López y José Cayo  
+Funcionalidad:
+Realiza la instanciacion de los módulos necesarios para la
+implentacion de las operaciones a los Vectores enviados por
+puerto serial
+********************************************************/
+
 module Main#(parameter N = 1024, numberbit = 8)(
     input logic clkin,
     input logic rx,
@@ -55,9 +66,9 @@ module Main#(parameter N = 1024, numberbit = 8)(
     .reset(1'b0),
     .clk_out(clk1KHz_out)
     );
-  // Uart Moldule  Felipe Veas <felipe.veasv [at] usm.cl 
+  // Uart Module, bajo autoría de Felipe Veas <felipe.veasv [at] usm.cl 
  uart_basic #(
-.CLK_FREQUENCY(90000000),
+.CLK_FREQUENCY(70000000),
 .BAUD_RATE(115200)
  ) uart_basic(
 .clk(clk),
@@ -153,7 +164,7 @@ Processing_Core2#(.N(N), .numberbit(8))  Processing_Core(
 	.sel(selec),
 	.bcd(datos)
     );
-
+// Conversor de los datos a 7 segmentos
 	BCD_to_sevenSeg BCD_to_sevenSeg(
 	.Data(datos),
 	.sel(selec),

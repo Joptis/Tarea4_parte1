@@ -42,8 +42,6 @@ using namespace std;
 *
 * 					D_euc=(sum((A-B)^2))^(1/2)
 *
-* Adicionalmente, se generan textos de salida para ayudar en la instanciación del módulo IP generado,
-* concretamente a la conexión de los elementos de los vectores
 **************************************************/
 
 void EucHW (T2 A[M], T2 B[M],T *C){

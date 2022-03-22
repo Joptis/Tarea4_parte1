@@ -1,6 +1,7 @@
 /*
  * uart_basic.v
- * 2017/02/01 - Felipe Veas <felipe.veasv at usm.cl>
+ * Autoría de  Felipe Veas <felipe.veasv at usm.cl>
+ * Fecha 2017/02/01 
  *
  * Universal Asynchronous Receiver/Transmitter.
  */

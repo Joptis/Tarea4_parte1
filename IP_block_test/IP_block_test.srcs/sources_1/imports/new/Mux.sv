@@ -1,5 +1,14 @@
 `timescale 1ns / 1ps
 
+/******************************************************* 
+clock_divider.sv
+Creado por: Reiner López y José Cayo  
+Funcionalidad:
+Establece la multiplexació de las operaciones, tanto aritméticas
+(suma, promedio, Manhattan y Euclidiana) como funcionales
+(escritura y lectura)
+********************************************************/
+
 module Mux(
     input logic rx_ready,
     input logic [7:0] rx_data,

@@ -49,13 +49,6 @@ void EucSW (T2 A[M], T2 B[M],T *C){
 	/*Variable que almacena los resultados de los deltas*/
 	T sumatoria = 0;
 
-	/*Generacion de ayuda de instancia para el módulo IP. Se encuentran en el archivo .log generado*/
-	for (int dates = 0; dates < M; dates++) {
-		cout <<".A_"<<dates<<"(VectorA["<<dates<<"]),"<< endl;
-		}
-		for (int dates = 0; dates < M; dates++) {
-			cout <<".B_"<<dates<<"(VectorB["<<dates<<"]),"<< endl;
-			}
 		/* loop que realiza el cálculo euclidiano*/
 	          loop: for (int dates = 0; dates < M; dates++) {
 

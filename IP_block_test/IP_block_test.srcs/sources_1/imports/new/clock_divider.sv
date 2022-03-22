@@ -1,5 +1,17 @@
 `timescale 1ns / 1ps
 
+/******************************************************* 
+clock_divider.sv
+Creado por: Reiner López y José Cayo  
+Funcionalidad:
+En base a un contador y a la llegada del mismo a un valor dado
+por el parámetro "COUNTER_MAX" permite obtener una señal
+de reloj "clk_out", cuya frecuencia está dado por:
+
+    f_clk_out= f_clk_in/(2*COUNTER_MAX)
+********************************************************/
+
+
 module clock_divider
 
 #(parameter COUNTER_MAX = 100000000) //100MHZ

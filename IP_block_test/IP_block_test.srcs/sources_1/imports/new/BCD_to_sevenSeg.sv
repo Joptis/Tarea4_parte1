@@ -1,4 +1,23 @@
 `timescale 1ns / 1ps
+/******************************************************* 
+BCD_to_sevenSeg.sv
+Creado por: Reiner López y José Cayo  
+Funcionalidad:
+
+Realiza la conversión del digito numérico BCD en su representación 
+de 7 segmentos, dejando en alto los segmentos para formar el dígito correspondiente.
+
+Un dígito esta compuesto por 7 segmentos asociados a una letra (abcdefg),
+las cuales se encuentran ligadas a salida "sevenSeg". En funcion de la definicion 
+utilizada en los constrains del proyecto, dicha salida sigue la siguiente 
+nomenclatura:
+
+        sevenSeg: gfedcba
+
+
+********************************************************/
+
+
 module BCD_to_sevenSeg(
 	input logic [3:0]  Data,
 	input logic [2:0]  sel,
