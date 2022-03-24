@@ -3,25 +3,60 @@
 <html>
 <head>
 <style>
-figure {
-  border: 1px #cccccc solid;
-  padding: 4px;
-  margin: auto;
+html, body {
+   background-color: darkgray;
+  
+  /* grid   */
+  height: 100%;
 }
 
-figcaption {
-  background-color: white;
-  color: black;
-  font-style: italic;
-  padding: 4px;
+.container-main {
+  
+  /*  grid   */
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  
+  /*  grid  */
+  max-width: 100%;
+}
+
+.caption {
+  background-color: lightgreen;
   text-align: center;
+  
+  /*  grid  */
+  width: 100%;
 }
 
-img {
-  display: block;
+
+figure {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center
+  ##border: 5px solid #555;
+  ##border: 1px #cccccc solid;
+  padding: 4px;
   margin-left: auto;
   margin-right: auto;
 }
+
+figcaption {
+  text-align: center;
+  content-align: center;
+  background-color: white;
+  color: black;
+  font-style: initial;
+  padding: 4px;
+  max-width: 100%;
+  margin: 10px auto; 
+}
+
 </style>
 </head>
 <body>
@@ -29,15 +64,18 @@ img {
 # High-Level Synthesis en FGPA Nexys-4DDR
 ----
 
-<a href="https://img.shields.io/badge/License-undefined-brightgreen"><img src="https://img.shields.io/badge/License-MIT-brightgreen"></a>
+<a href="https://img.shields.io/badge/License-undefined-brightgreen"><img src="https://img.shields.io/badge/License-MIT-brightgreen" style="border:None;  margin-left:0px;width:30%"></a>
 
 ## Tabla de contenidos
-- [Description](#descripcion)
-- [Installation](#installacion)
-- [Cómo usar](#como-usar)
-- [Contribución](#contribucion)
-- [Test Instructions](#resultados-obtenidos)
-- [Información de Contacto](#informacion-de-contacto)
+- [# High-Level Synthesis en FGPA Nexys-4DDR](#-high-level-synthesis-en-fgpa-nexys-4ddr)
+- [Tabla de contenidos](#tabla-de-contenidos)
+  - [Descripción](#descripción)
+  - [Requisitos](#requisitos)
+  - [Instalación y utilización](#instalación-y-utilización)
+  - [Cómo usar](#cómo-usar)
+  - [Contribución](#contribución)
+  - [Resultados obtenidos](#resultados-obtenidos)
+  - [Informacion de contacto](#informacion-de-contacto)
 
 ### Descripción
 Este repositorio contiene los códigos fuentes para la implementación de lo solicitado en la primera parte de la 
@@ -93,19 +131,17 @@ Imagenes para draft
 {% include image.html img="](/Fotos/Design_sources_add.PNG" title="" caption="hola soy tu mama" %} 
 
 
-<div style="width: 60%; height: 60%">
-| ![space-1.jpg](http://www.storywarren.com/wp-content/uploads/2016/09/space-1.jpg) | 
-|:--:| 
-| *Space* |
 
-</div>
 
-<img src="https://user-images.githubusercontent.com/16319829/81180309-2b51f000-8fee-11ea-8a78-ddfe8c3412a7.png" width=50% height=50%>
-
- <figure>
-  <img src="/Fotos/cosimulation_options.PNG"  width=30% height=30%>
-  <figcaption>Fig.1 - Trulli, Puglia, Italy.</figcaption>
+<figure>
+  <img src="Fotos/cosimulation_options.PNG" width=100% alt="texto">
+  <span class="figcaption">Content goes here</span>
 </figure> 
+
+<div class="container-main">
+  <img class="image"  src="Fotos/cosimulation_options.PNG" alt="" />
+  <p class="caption">Caption title</p>
+</div>
 
 ### Contribución
 Si buscas contribuir al repositorio o para realizar consultas del codigo
