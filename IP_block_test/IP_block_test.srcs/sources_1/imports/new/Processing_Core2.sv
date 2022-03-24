@@ -15,7 +15,8 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
     input logic unsigned [numberbit-1:0] VectorB [N - 1:0],
     output logic tx_start,
     output logic [7:0] tx_data,
-	output logic [31:0] bcd
+	output logic [31:0] bcd,
+	output logic Euc_done
 	);
    	
 	logic tx_start_a, tx_start_b, tx_start_s, tx_start_p, tx_start_m, tx_start_e; 
@@ -2231,7 +2232,9 @@ module Processing_Core2 #(parameter N = 8, numberbit = 8)(
 		endcase
 	end
 	
- 
+ always_comb begin
+    Euc_done=ap_done;
+ end
     
 	
 	

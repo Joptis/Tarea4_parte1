@@ -9,7 +9,7 @@
 clear all; 
 close all;
 clc;
-
+pause('on')
 
 N=1024   ;  % Define el numero de elementos de cada vector
 

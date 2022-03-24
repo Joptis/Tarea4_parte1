@@ -15,7 +15,8 @@ module Main#(parameter N = 1024, numberbit = 8)(
     input logic rx,
     output logic tx,
 	output logic [7:0] Ena,
-	output logic [6:0] Seg
+	output logic [6:0] Seg,
+	output logic Euc_start, Euc_done
     );
     
  //  CLOCK
@@ -147,7 +148,8 @@ Processing_Core2#(.N(N), .numberbit(8))  Processing_Core(
     .VectorB(dataB),
 	.tx_start(tx_start),
     .tx_data(tx_data),
-	.bcd(bcd)
+	.bcd(bcd),
+	.Euc_done(Euc_done)
     );
 // Felipe Veas <felipe.veasv [at] usm.cl
 	UnsignedBcd bin2bcd(
@@ -173,4 +175,9 @@ Processing_Core2#(.N(N), .numberbit(8))  Processing_Core(
 	.cmd(CMD)
     );
     
+ //Salidas para medir latencia
+ 
+ always_comb begin
+    Euc_start=etrigger;
+ end   
 endmodule
