@@ -1,3 +1,19 @@
+
+## _includes/image.html
+<div class="image-wrapper" >
+  {% if include.url %}
+  <a href="{{ include.url }}" title="{{ include.title }}" target="_blank">
+  {% endif %}
+      <img src="{{ site.url }}/{{ include.img }}" alt="{{ include.title }}"/>
+  {% if include.url %}
+  </a>
+  {% endif %}
+  {% if include.caption %}
+      <p class="image-caption">{{ include.caption }}</p>
+  {% endif %}
+</div>
+
+
 # High-Level Synthesis en FGPA Nexys-4DDR
 ----
 
@@ -59,14 +75,10 @@ git clone https://github.com/Joptis/Tarea4_parte1
 Imagenes para draft
 
 ![ScreenShot](/Fotos/New_project.PNG)
-<span class="caption">The [ScreenShot](](/Fotos/New_project.PNG) contains a multitude of species.</span>
-
 
 | ![space-1.jpg](/Fotos/Design_sources_add.PNG) 
-||:--:|| 
-<b>Image Credits - Fig.2 - 4K Mountains Wallpaper</b>|
  
- 
+{% include image.html img="](/Fotos/Design_sources_add.PNG" title="" caption="hola soy tu mama" %} 
 
 
 ### Contribución
