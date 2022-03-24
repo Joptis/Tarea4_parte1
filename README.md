@@ -59,6 +59,10 @@ git clone https://github.com/Joptis/Tarea4_parte1
 Imagenes para draft
 
 ![ScreenShot](/Fotos/New_project.PNG)*probando caption*
+
+| ![space-1.jpg](/Fotos/Design_sources_add.PNG) 
+||:--:|| 
+<b>Image Credits - Fig.2 - 4K Mountains Wallpaper</b>|
  
  
 
