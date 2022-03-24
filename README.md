@@ -80,6 +80,10 @@ Imagenes para draft
  
 {% include image.html img="](/Fotos/Design_sources_add.PNG" title="" caption="hola soy tu mama" %} 
 
+| ![space-1.jpg](http://www.storywarren.com/wp-content/uploads/2016/09/space-1.jpg) | 
+|:--:| 
+| *Space* |
+
 
 ### Contribución
 Si buscas contribuir al repositorio o para realizar consultas del codigo
