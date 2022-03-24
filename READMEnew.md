@@ -1,65 +1,6 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-html, body {
-   background-color: darkgray;
-  
-  /* grid   */
-  height: 100%;
-}
-
-.container-main {
-  
-  /*  grid   */
-  height: 100%; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.image {
-  
-  /*  grid  */
-  max-width: 100%;
-}
-
-.caption {
-  background-color: lightgreen;
-  text-align: center;
-  
-  /*  grid  */
-  width: 100%;
-}
 
 
-figure {
-  display: flex;
-  flex-wrap: nowrap;
-  align-content: center
-  ##border: 5px solid #555;
-  ##border: 1px #cccccc solid;
-  padding: 4px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-figcaption {
-  text-align: center;
-  content-align: center;
-  background-color: white;
-  color: black;
-  font-style: initial;
-  padding: 4px;
-  max-width: 100%;
-  margin: 10px auto; 
-}
-
-</style>
-</head>
-<body>
 
 # High-Level Synthesis en FGPA Nexys-4DDR
 ----
@@ -72,9 +13,10 @@ figcaption {
   - [Descripción](#descripción)
   - [Requisitos](#requisitos)
   - [Instalación y utilización](#instalación-y-utilización)
-  - [Cómo usar](#cómo-usar)
   - [Contribución](#contribución)
+  - [Selección de pragmas](#selección-de-pragmas)
   - [Resultados obtenidos](#resultados-obtenidos)
+  - [Contribución](#contribución-1)
   - [Informacion de contacto](#informacion-de-contacto)
 
 ### Descripción
@@ -102,55 +44,67 @@ Para la medición de latencia de la operación euclidiana, se requiere utilizar 
 
 ### Instalación y utilización
 
-1. Clonar el repositorio a un directorio de su elección. Se puede realizar, por ejemplo, con el siguiente comando en terminal linux:
+1. Clonar el repositorio a un directorio de su elección. Se puede realizar, por ejemplo, con el siguiente comando en terminal linux (Se requiere tener acceso al repositorio, de lo contrario fallará la clonación):
 
 ```
 git clone https://github.com/Joptis/Tarea4_parte1
 ```
 
-2. Crear un projecto de vivado desde 0
+2. Crear un projecto de vivado desde 0. La forma tipica es al iniciar el programa, dar clic en Create Project.
+
+<center><img src="Fotos/new_project_vivado.PNG" width="90%"></center>
+      <center>This is an image</center>
+
+En general se siguen los pasos por defecto para crear el proyecto. Es importante que selecciones la parte correcta correspondiente a la tarjeta Nexys4 DDR, la cual corresponde a xc7a100tcsg324-1.
+
+<center><img src="Fotos/default_part_vivado.PNG" width="80%"></center>
+      <center>This is an image</center>
 
 3. Indicar el directorio de la ubicación del archivo .zip que contiene el bloque IP. Para ello, una vez abierto IP Catalog, clic derecho dentro de la interfaz y seleccionar "Add Repository".
 
-4. Añadir todos los archivos fuentes al proyecto de Vivado, los cuales se encuentra dentro del directorio "IP_block_test" del mismo repositorio. Project Manager->Add Sources->Add or Create design sources. Repetir lo mismo para el archivo de constrain, seleccionando "Add or create contraints".
+<center><img src="Fotos/Add_repo.PNG" width="80%"></center>
+      <center>This is an image</center>
 
-5. En la pestaña de Flow Navigator, dar clic a Generate Bitstream. Esto realiza la síntesis y la implementación del código previamente, para generar el archivo de configuración.
+1. Añadir todos los archivos fuentes al proyecto de Vivado, los cuales se encuentra dentro del directorio "IP_block_test" del mismo repositorio. Project Manager->Add Sources->Add or Create design sources. Repetir lo mismo para el archivo de constrain, seleccionando "Add or create contraints".
 
-6. Generado el bitstream, en la pestaña saliente, seleccione la opción Open Hardware Manager. Establezca la conexión con la FPGA con la opcion Auto Connect, luego Program Device. El codigo se encuentra compilado en la tarjeta.
+2. En la pestaña de Flow Navigator, dar clic a Generate Bitstream. Esto realiza la síntesis y la implementación del código previamente, para generar el archivo de configuración.
 
-7. Abrir MATLAB y correr el código de nombre "coprocessorTesting_Oficial.m". Recuerde asignar la ubicacion de todos los archivos .m en el PATH del programa. MATLAB avisa al usuario la primera vez que se ejecuta un script. En la pestaña saliente seleccione Add to Path.	
+3. Generado el bitstream, en la pestaña saliente, seleccione la opción Open Hardware Manager. Establezca la conexión con la FPGA con la opcion Auto Connect, luego Program Device. El codigo se encuentra compilado en la tarjeta.
 
+4. Abrir MATLAB y correr el código de nombre "coprocessorTesting_Oficial.m". Recuerde asignar la ubicacion de todos los archivos .m en el PATH del programa. MATLAB avisa al usuario la primera vez que se ejecuta un script. En la pestaña saliente seleccione Add to Path.	
 
-### Cómo usar
-Imagenes para draft
+Cabe destacar que el bloque IP ya viene en el repositorio, por lo que no se requiere utilizar el Vitis HLS. En caso de querer comprobar resultados, se deben realizar los siguentes pasos:
 
-![ScreenShot](/Fotos/New_project.PNG)
-
-| ![space-1.jpg](/Fotos/Design_sources_add.PNG) 
- 
-{% include image.html img="](/Fotos/Design_sources_add.PNG" title="" caption="hola soy tu mama" %} 
-
-
+1. Crear un nuevo proyecto de Vitis HLS. Dentro de la pestaña al iniciar el programa, dar clic en "Create Project"
+2. Se entrará a una pestaña para agregar los Design Files. Dar clic en Add Files, y añadir todo archivo .cpp y .h, con excepcion del archivo "EucTB.cpp" ya que es un archivo de simulación
+3. En la siguiente pestaña para agregar testbenches, agregar el archivo faltante (EucTB.cpp)
+4. En la siguiente pestaña, se mantienen la gran mayoría de opciones por defecto, con la excepción del Part Selection, la cual debe coincidir con la usada en Vivado. Dar clic en finalizar
 
 
-<figure>
-  <img src="Fotos/cosimulation_options.PNG" width=100% alt="texto">
-  <span class="figcaption">Content goes here</span>
-</figure> 
 
-<div class="container-main">
-  <img class="image"  src="Fotos/cosimulation_options.PNG" alt="" />
-  <p class="caption">Caption title</p>
-</div>
+<center><img src="Fotos/cosimulation_options.PNG" width="60%"></center>
+      <center>This is an image</center>
 
 ### Contribución
 Si buscas contribuir al repositorio o para realizar consultas del codigo
 
+### Selección de pragmas
+- ARRAY PARTITION: Este pragma permite particionar vectores en secciones más pequeñas. EL desarrollo de la tarea 3 considera una memoria de caracter SIPO (Singular input Parallel Output), por lo que, al querer evitar realizar cambios en la arquitectura se decide particionar los 2 vectores de forma completa, y asi lograr una implementación idéntica.
+
+- PIPELINE: Este pragma permite segmentar las operacion realizada en el código de alto nivel. Se utiliza este pragma para lograr una implementacion con la menor cantidad de recursos posible, a cambio de una mayor latencia. Se realizan pruebas preliminares con el pragma UNROLL, que reduce la cantidad de comparaciones, y en contraste, una mejora considerable en la latencia. No obstante, la FPGA usada no posee los recursos necesarios para implementar dicha estrategia. Se utilizan los parámetros por defecto.
 ### Resultados obtenidos
 
-(imagenes dummy y resultados de texto para los resultados)
+1. Vitis HLS
+
+Para validar el diseño realizado en vitis HLS, se debe seguir el siguiente flujo de validación.
+
+C Simulation -> Synthesis -> Export RTL
+
+La cosimulacion no es considerada para el número de datos solicitado, debido a que el programa entregaba falla, a pesar de estar funcionando correctamente en la FPGA. Se desconoce la razón de este falso positivo.
 
 - Resultados simulación
+
+Esta etapa realiza la ejecución del código presente en EUC
 ```
 
 Number of errors: 0
@@ -172,7 +126,7 @@ INFO: [HLS 200-112] Total CPU user time: 874 seconds. Total CPU system time: 7 s
 Finished C synthesis.
 
 ```
--Resultado Exportación bloque IP
+- Resultado Exportación bloque IP
 
 ```
 INFO: [Common 17-206] Exiting Vivado at Tue Mar 22 15:39:15 2022...
@@ -180,6 +134,10 @@ INFO: [HLS 200-802] Generated output file Euc_res.zip
 INFO: [HLS 200-111] Finished Command export_design CPU user time: 345 seconds. CPU system time: 5 seconds. Elapsed time: 881.63 seconds; current allocated memory: 211.783 MB.
 Finished Export RTL/Implementation.
 ```
+
+### Contribución
+Si buscas contribuir al repositorio o para realizar consultas del codigo
+
 
 ### Informacion de contacto
 [Github Profile](https://github.com/Joptis)
