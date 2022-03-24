@@ -58,7 +58,9 @@ git clone https://github.com/Joptis/Tarea4_parte1
 ### Cómo usar
 Imagenes para draft
 
-![ScreenShot](/Fotos/New_project.PNG)*probando caption*
+![ScreenShot](/Fotos/New_project.PNG)
+<span class="caption">The [ScreenShot](](/Fotos/New_project.PNG) contains a multitude of species.</span>
+
 
 | ![space-1.jpg](/Fotos/Design_sources_add.PNG) 
 ||:--:|| 
