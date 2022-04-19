@@ -9,12 +9,13 @@
 
 ## Tabla de contenidos
 - [](#)
+    - [Descripción](#descripción) 
     - [Instalación y utilización](#instalación-y-utilización)
     - [Contribución](#contribución)
     - [Selección de pragmas](#selección-de-pragmas)
     - [Resultados obtenidos](#resultados-obtenidos)
     - [Contribución](#contribución-1)
-    - [Informacion de contacto](#informacion-de-contacto)
+    - [Información de contacto](#informacion-de-contacto)
 
 ### Descripción
 $~$
@@ -44,7 +45,7 @@ $~$
 
 La versión de Vitis HLS y Vivado utilizada para la verificación y resultados presente corresponde al build 2021.1.. No se garantiza el correcto funcionamiento en versiones más recientes o antiguas.
 
-Para la medición de latencia de la operación euclidiana, se requiere utilizar un Analizador lógico externo, dado a que no existen recursos suficientes para uno interno (ILA), y de que es mejor tener un dispositivo con mayor frecuencia de muestreo.
+Para la medición de latencia de la operación euclidiana, se requiere utilizar un Analizador lógico externo, dado que no existen recursos suficientes para uno interno (ILA), y de que es mejor tener un dispositivo con mayor frecuencia de muestreo.
 $~$
 
 $~$
@@ -133,14 +134,14 @@ Para validar el código/diseño realizado en Vitis HLS, se debe seguir el siguie
 
 C-Simulation -> Synthesis -> Export RTL
 
-La cosimulación no es considerada para el número de datos solicitado, debido a que el programa entrega falla (Salida en FAIL) a pesar de estar funcionando correctamente en la FPGA, incluso para un menor número de datos. Se desconoce la razón de este falso positivo.
+La cosimulación no es considerada para el número de datos solicitado, debido a que el programa entrega falla (salida en FAIL) a pesar de estar funcionando correctamente en la FPGA, incluso para un menor número de datos. Se desconoce la razón de este falso positivo.
 $~$
 
 $~$
 ### Resultados simulación
 
 
-Esta etapa realiza la ejecución del código presente en *EucSW.cpp* y *EucHW.cpp* y compara sus salidas en base al *testbench* presente en *EucTB.cpp*, repitiendo la prueba una determinada cantidad de veces. Un valor de retorno 0 indica simulación exitosa. Al dar clic en C simulation, con las opciones por defecto. Se obtiene el siguiente resultado en la terminal.
+Esta etapa realiza la ejecución del código presente en *EucSW.cpp* y *EucHW.cpp* y compara sus salidas en base al *testbench* presente en *EucTB.cpp*, realizando repeticiones de la prueba una determinada cantidad de veces en función del valor dado a la variable *tests*. Un valor de retorno 0 indica una simulación exitosa. Al hacer clic en *C simulation* con las opciones por defecto, se obtiene el siguiente resultado en la terminal.
 
 ```
 Number of errors: 0
@@ -149,13 +150,13 @@ INFO: [SIM 211-3] *************** CSIM finish ***************
 INFO: [HLS 200-111] Finished Command csim_design CPU user time: 6 seconds. CPU system time: 0 seconds. Elapsed time: 6.53 seconds; current allocated memory: 117.766 MB.
 Finished C simulation.
 ```
-No se presenta errores en las operaciones, al recibir el valor 0 como retorno de la simulación. Además se detalla el tiempo y recursos de la CPU para realizar la simulación.
+No se presentan errores en las operaciones, al recibir el valor 0 como retorno de la simulación. Además se detalla el tiempo y recursos de la CPU para realizar la simulación. El número de pruebas realizado fueron un total de 100.
 
 ### Resultado síntesis
 $~$
 $~$
 
-Se lleva a cabo la simulación para determinar la interfaz (puertos de entrada salida, forma de implementación, entre otros) y reinterpretar la funcionalidad del código C en uno de hardware. La terminal entrega la siguiente información una vez terminado este proceso:
+Se lleva a cabo el proceso de síntesis para determinar la interfaz (puertos de entrada salida, forma de implementación, entre otros) y reinterpretar la funcionalidad del código C en uno de hardware. La terminal entrega la siguiente información una vez terminado este proceso:
 ```
 INFO: [VHDL 208-304] Generating VHDL RTL for EucHW.
 INFO: [VLOG 209-307] Generating Verilog RTL for EucHW.
@@ -165,11 +166,11 @@ INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 872 seconds. C
 INFO: [HLS 200-112] Total CPU user time: 874 seconds. Total CPU system time: 7 seconds. Total elapsed time: 1086.05 seconds; peak allocated memory: 1008.943 MB.
 Finished C synthesis.
 ```
-La síntesis determina que el bucle presente cumple con los requisitos de diseño. Además, se reporta los recursos que la CPU utilizó en total para realizar la operación y la frecuencia máxima de reloj en que el bloque puede teóricamente funcionar.
+La síntesis determina que el bucle presente cumple con los requisitos de diseño. Además, se reporta los recursos que la CPU utilizó en total para realizar la operación y la frecuencia máxima de reloj en que el bloque puede teóricamente funcionar, aunque dicha estimación no considera conexiones con otros módulos.
 
 También existe otro reporte que el programa entrega, referente a las estimaciones de rendimiento (latencia) y recursos al usar e implementar el bloque IP a generar. La información de importancia se presenta a continuación:
 
-| Módulo && Bucles | Latencia (Ciclos) | Latencia (ns) | Pipelined | DSP | FF  | LUT  |
+| Módulo & Bucles | Latencia (Ciclos) | Latencia (ns) | Pipelined | DSP | FF  | LUT  |
 |------------------|-------------------|---------------|-----------|-----|-----|------|
 | EucHW            | 1093              | 10930         | no        | 3   | 569 | 6965 |
 | loop             | 1027              | 10270         | yes       | -   | -   | -    |
@@ -177,10 +178,13 @@ También existe otro reporte que el programa entrega, referente a las estimacion
 
 ### Resultado Exportación bloque IP
 
-Haciendo clic en Export RTL, permite generar el IP a utilizar en el bloque vivado. Debe asegurarse de tener el formato de exportación como Vivado IP. El nombre no es algo necesario de mantener, pero evita problemas con duplicados. La pestaña previa debe quedar de forma similar a la imagen:
+Haciendo clic en Export RTL, permite generar el IP a utilizar en el bloque vivado. Debe asegurarse de tener el formato de exportación como Vivado IP. El nombre no es algo necesario de mantener, pero evita problemas con duplicados. La pestaña previa debe quedar de forma similar a la siguiente imagen:
 
 <center><img src="Fotos/IP_export_options.PNG" width="70%"></center>
-      <center>This is an image</center>
+      <center>Pestaña de exportación a bloque IP (*Output Location*)</center>
+
+$~$
+$~$
 
 Una vez terminada, la terminal entrega lo siguiente:
 ```
@@ -191,10 +195,21 @@ Finished Export RTL/Implementation.
 ```
 
 Similar a los puntos anteriores, se reporta el tiempo requerido y los recursos usado por la CPU para realizar la operación.
+$~$
 
-1. Vivado
+$~$
 
-Al realizar la integración del bloque euclidiano con el resto del Processing Core, la implementación entrega el siguiente reporte de recursos:
+
+#### Implementación en Vivado
+$~$
+$~$
+
+
+Una vez realizada la integración del bloque euclidiano con el resto del *Processing Core*, la implementación entrega el siguiente reporte de recursos:
+$~$
+
+$~$
+
 
 | Recurso | N° en Uso | \%Uso |
 |------------------------------|-------|-------|
@@ -216,7 +231,12 @@ Este reporte considera todos los módulos del Processing core en total. Para el 
 | DSP        | 3         |
 
 
-Con respecto al tiempo requerido para realizar proceso de síntesis e implementación, el programa tarda 09:22 y 25:16, respectivamente en cada una. Esto se observa en la pestaña de Design Runs, la cual se accede por defecto, o mediante el buscador Quick Access. Estos tiempos difieren si se tiene un computador de alta gama y si no tiene muchos procesos abiertos.
+Este reporte en particular aparece siempre que no se tengan en caché la síntesis previa del mismo bloque IP. Para borrar esta caché se va a *Project settings*, y dentro de la sección IP->IP Cache, hacer clic en *Clear Cache*.
+$~$
+
+$~$
+
+Con respecto al tiempo requerido para realizar proceso de síntesis e implementación, el programa tarda 09:22 y 25:16, respectivamente en cada una. Esto se observa en la pestaña de *Design Runs*, la cual se accede por defecto, o mediante el buscador Quick Access. Estos tiempos difieren si se tiene un computador de alta gama o no se tiene muchos procesos abiertos en segundo plano.
 <center><img src="Fotos/Project_resources.PNG" width="80%"></center>
       <center>Selección de chip (Default Part)</center>
 
@@ -225,6 +245,25 @@ Con respecto al tiempo requerido para realizar proceso de síntesis e implementa
 |----------------------------|----------------------------|------------------------|
 | 0.129                      | 0.0                        | 0.009                  |
 
+
+### Latencia
+Para medir la latencia se utilizan los 2 pines habilitados para medir la latencia del cálculo de la operación Euclidiana; sus ubicaciones se pueden apreciar en el archivo de *constraint*, correspondiente al archivo con extensión .xdr. El procedimiento de medición consiste en determinar el tiempo en que ocurre el canto de subida de la señal *ap\_start*, ligada a la señal *etrigger* del *decoder*, y el canto de subida de la señal ap\_done. Esta medición se realiza mediante el uso del Analizador Lógico presente en el Analog Discovery, ya que posee la suficiente frecuencia de muestreo para medir las señales a la frecuencia máxima obtenida.
+
+$~$
+$~$
+
+Se determina que el intervalo de tiempo entre ambos cantos de subida es de aproximadamente 15.61 us. Considerando una frecuencia de reloj de 70 MHz, la cual fue usada en el experimento. La cantidad de ciclos que tarda la distancia Euclidiana en calcularse está dado por la siguiente ecuación:
+
+<center><img src="Fotos/Cycle_calc.PNG" width="80%"></center>
+      <center>Cálculo de ciclos de latencia</center>
+
+
+$~$
+$~$
+
+Se obtiene que el cálculo tarda alrededor de 1092 ciclos en obtener la distancia euclidiana, lo cual se acerca a lo estimado por la tabla presente en la sección ["Resultado síntesis"](#resultado-síntesis)
+<center><img src="Fotos/Latency_measure_highlight.PNG" width="80%"></center>
+      <center>Medición de latencia (Analog Discovery)</center>
 
 ### Contribución
 Si buscas contribuir al repositorio o para realizar consultas del codigo
