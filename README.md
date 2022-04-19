@@ -19,7 +19,7 @@
     - [Implementación en Vivado](#implementación-en-vivado)  
     - [Latencia](#latencia)      
 - [Contribución](#contribución)
-- [Información de contacto](#informacion-de-contacto)
+- [Información de contacto](#información-de-contacto)
 
 &emsp;
 
