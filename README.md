@@ -21,8 +21,8 @@
 $~$
 $~$
 
-Este repositorio contiene los códigos fuentes para la implementación de lo solicitado en la primera parte de la 
-tarea 4 a desarrollar en el ramo IPD432 (Diseño Avanzado de Sistemas Digitales).	Este consiste en implementar el cálculo de la distancia Euclidiana utilizando estrategias de High-Level-Synthesis (HLS), el cual consiste definir una función en C/C++ que realice una determinada operación, la cual mediante el uso de pragmas (indicadores de implementación a hardware) permiten generar un bloque IP para su uso en códigos de Verilog/Systemverilog. El siguiente desarrollo considera de base una implementación previa que sigue la estrategia de segmentación (pipeline), lo cual permite reducir el uso de recursos a cambio de un menor frecuencia máxima de reloj. La implementación de la distancia Euclidiana considera este paradigma, en donde se tiene como objetivo integrar todas las operaciones dentro de la FPGA (Suma, promedio, distancia de Manhattan y distancia Euclidiana). 
+Este repositorio contiene los códigos fuentes para la implementación del cálculo de la distancia Euclidiana en la tarjeta de desarrollo Nexys DDR4 correspondiente a la
+tarea 4 de la asignatura  "Diseño Avanzado de Sistemas Digitales" (IPD432). Para lograr el objetivo propuesto se emplea la herramienta  High-Level-Synthesis (HLS) para implementar mediante el lenguaje  C/C++ la operación. Esto es posbile mediante el uso de pragmas (indicadores de implementación a hardware), y mediante Vitis HLS se genera un bloque IP en RTL  para importar en Vivado e instanciarlo empleando el lenguaje Verilog/Systemverilog. El siguiente desarrollo se basa en una estrategia de segmentación (pipeline), lo cual permite reducir el uso de recursos a cambio de una menor frecuencia máxima de reloj. Esta implementación tiene como objetivo integrar todas las operaciones dentro de la FPGA (suma, promedio, distancia de Manhattan y distancia Euclidiana). 
 
 El formato de este readme fue realizado mediante la ayuda del generador escrito por *Kfields91*, presente en el repositorio que se encuentra [aquí](https://github.com/Kfields91/README-Generator).
 
@@ -34,7 +34,7 @@ $~$
 
 Para ejecutar el código presente en este repositorio, se requiere previamente instalar los siguientes programas:
 
-- Vitis HLS (Opcional): Herramienta que compila el código de alto nivel y lo exporta a un bloque IP para su uso en Vivado. Si bien no es un requisito tenerlo instalado, ya que el repositorio posee el archivo exportado por Vitis HLS, es recomendable si se busca verificar el funcionamiento o en su defecto entender de mejor manera el código.
+- Vitis HLS (Opcional): Herramienta que compila el código de alto nivel y lo exporta a un bloque IP para usar en Vivado. Si bien no es un requisito tenerlo instalado, ya que el repositorio posee el archivo exportado por Vitis HLS, es recomendable si se busca verificar el funcionamiento o en su defecto entender de mejor manera el código.
 
 - Vivado: Herramienta para realizar la síntesis e implementación de los códigos escritos en lenguaje *SystemVerilog* a la tarjeta FPGA a utilizar.
 
@@ -70,7 +70,7 @@ git clone https://github.com/Joptis/Tarea4_parte1
 $~$
 $~$
 
-En general se siguen los pasos por defecto para crear el proyecto. Es importante que selecciones la parte correcta correspondiente a la tarjeta *Nexys4 DDR*, la cual corresponde a *xc7a100tcsg324-1*.
+En general se siguen los pasos por defecto para crear el proyecto. Es importante seleccionar la parte correcta correspondiente a la tarjeta *Nexys4 DDR*, la cual corresponde a *xc7a100tcsg324-1*.
 $~$
 
 $~$
