@@ -8,16 +8,28 @@
 <a href="https://img.shields.io/badge/License-undefined-brightgreen"><img src="https://img.shields.io/badge/License-MIT-brightgreen" style="border:None;  margin-left:0px;width:30%"></a>
 
 ## Tabla de contenidos
-- [](#)
-    - [Descripción](#descripción) 
-    - [Instalación y utilización](#instalación-y-utilización)
-    - [Contribución](#contribución)
-    - [Selección de pragmas](#selección-de-pragmas)
-    - [Resultados obtenidos](#resultados-obtenidos)
-    - [Contribución](#contribución-1)
-    - [Información de contacto](#informacion-de-contacto)
+- [Descripción](#descripción) 
+- [Requisitos](#requisitos)
+- [Instalación y utilización](#instalación-y-utilización)
+- [Selección de pragmas](#selección-de-pragmas)
+- [Resultados obtenidos](#resultados-obtenidos)
+    - [Vitis HLS](#vitis-hls)
+    - [Resultados Simulación](#resultados-simulación)
+    - [Resultado Exportación bloque IP](#resultado-exportación-bloque-ip)
+    - [Implementación en Vivado](#implementación-en-vivado)  
+    - [Latencia](#latencia)      
+- [Contribución](#contribución)
+- [Información de contacto](#informacion-de-contacto)
 
-### Descripción
+&emsp;
+
+#
+
+&emsp;
+
+## Descripción
+
+&emsp;
 
 Este repositorio contiene los códigos fuentes para la implementación del cálculo de la distancia Euclidiana en la tarjeta de desarrollo Nexys DDR4 correspondiente a la
 tarea 4 de la asignatura "Diseño Avanzado de Sistemas Digitales" (IPD432). Para lograr el objetivo propuesto se emplea la herramienta  High-Level-Synthesis (HLS) para implementar mediante el lenguaje  C/C++ la operación. Esto es posible mediante el uso de pragmas (indicadores de implementación a hardware), y mediante Vitis HLS se genera un bloque IP en RTL para importar en Vivado e instanciar el mismo empleando el lenguaje Verilog/Systemverilog. El siguiente desarrollo se basa en una estrategia de segmentación (pipeline), lo cual permite reducir el uso de recursos a cambio de una menor frecuencia máxima de reloj. Esta implementación tiene como objetivo integrar todas las operaciones dentro de la FPGA (suma, promedio, distancia de Manhattan y distancia Euclidiana).
@@ -28,7 +40,7 @@ El formato de este *readme* fue realizado mediante la ayuda del generador escrit
 
 #
 
-### Requisitos
+## Requisitos
 
 &emsp;
 
@@ -57,7 +69,7 @@ IMPORTANTE: Es posible que hasta la fecha Vitis HLS tenga problemas para exporta
 # 
 &emsp;
 
-### Instalación y utilización
+## Instalación y utilización
 &emsp;
 
 1. Clonar el repositorio a un directorio de su elección. Se puede realizar, por ejemplo, con el siguiente comando en terminal linux (Se requiere tener acceso al repositorio, de lo contrario fallará la clonación):
@@ -122,7 +134,7 @@ Cabe destacar que el bloque IP ya viene en el repositorio, por lo que no se requ
 #
 
 &emsp;
-### Selección de pragmas
+## Selección de pragmas
 
 &emsp;
 - ARRAY PARTITION: Este pragma permite realizar particiones de vectores en secciones más pequeñas. EL desarrollo de la tarea 3 considera una memoria de carácter SIPO (*Singular Input Parallel Output*), por lo que, al querer evitar realizar cambios en la arquitectura se decide realizar una partición completa a los 2 vectores, para así lograr una implementación idéntica.
