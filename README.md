@@ -42,6 +42,8 @@ La versión de Vitis HLS y Vivado utilizada para la verificación y resultados p
 
 Para la medición de latencia de la operación euclidiana, se requiere utilizar un Analizador lógico externo, dado que no existen recursos suficientes para uno interno (ILA), y de que es mejor tener un dispositivo con mayor frecuencia de muestreo.
 
+&emsp;
+
 IMPORTANTE: Es posible que hasta la fecha Vitis HLS tenga problemas para exportar a Bloque IP debido a un problema denominado "New Year's bug". Para solucionarlo, se deben seguir los pasos estipulados en el siguiente [link](https://support.xilinx.com/s/article/76960?language=en_US).
 
 # 
