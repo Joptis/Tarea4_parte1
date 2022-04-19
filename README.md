@@ -18,8 +18,8 @@
     - [Información de contacto](#informacion-de-contacto)
 
 ### Descripción
-$~$
-$~$
+
+&NewLine;
 
 Este repositorio contiene los códigos fuentes para la implementación del cálculo de la distancia Euclidiana en la tarjeta de desarrollo Nexys DDR4 correspondiente a la
 tarea 4 de la asignatura  "Diseño Avanzado de Sistemas Digitales" (IPD432). Para lograr el objetivo propuesto se emplea la herramienta  High-Level-Synthesis (HLS) para implementar mediante el lenguaje  C/C++ la operación. Esto es posbile mediante el uso de pragmas (indicadores de implementación a hardware), y mediante Vitis HLS se genera un bloque IP en RTL  para importar en Vivado e instanciarlo empleando el lenguaje Verilog/Systemverilog. El siguiente desarrollo se basa en una estrategia de segmentación (pipeline), lo cual permite reducir el uso de recursos a cambio de una menor frecuencia máxima de reloj. Esta implementación tiene como objetivo integrar todas las operaciones dentro de la FPGA (suma, promedio, distancia de Manhattan y distancia Euclidiana). 
