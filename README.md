@@ -19,8 +19,6 @@
 
 ### Descripción
 
-&NewLine;
-
 Este repositorio contiene los códigos fuentes para la implementación del cálculo de la distancia Euclidiana en la tarjeta de desarrollo Nexys DDR4 correspondiente a la
 tarea 4 de la asignatura  "Diseño Avanzado de Sistemas Digitales" (IPD432). Para lograr el objetivo propuesto se emplea la herramienta  High-Level-Synthesis (HLS) para implementar mediante el lenguaje  C/C++ la operación. Esto es posbile mediante el uso de pragmas (indicadores de implementación a hardware), y mediante Vitis HLS se genera un bloque IP en RTL  para importar en Vivado e instanciarlo empleando el lenguaje Verilog/Systemverilog. El siguiente desarrollo se basa en una estrategia de segmentación (pipeline), lo cual permite reducir el uso de recursos a cambio de una menor frecuencia máxima de reloj. Esta implementación tiene como objetivo integrar todas las operaciones dentro de la FPGA (suma, promedio, distancia de Manhattan y distancia Euclidiana). 
 
@@ -29,8 +27,7 @@ El formato de este readme fue realizado mediante la ayuda del generador escrito 
 #
 
 ### Requisitos
-$~$
-$~$
+
 
 Para ejecutar el código presente en este repositorio, se requiere previamente instalar los siguientes programas:
 
@@ -39,16 +36,11 @@ Para ejecutar el código presente en este repositorio, se requiere previamente i
 - Vivado: Herramienta para realizar la síntesis e implementación de los códigos escritos en lenguaje *SystemVerilog* a la tarjeta FPGA a utilizar.
 
 - Matlab: Herramienta utilizada para la implementación de la interfaz que establece la comunicación UART con la tarjeta, lo cual incluye envío y recibo de datos, a la vez de ejecutar las operaciones vectoriales. Es necesario instalar la versión R2019b o superior. No se garantiza el funcionamiento en versiones más antiguas.
-$~$
 
-$~$
 
 La versión de Vitis HLS y Vivado utilizada para la verificación y resultados presente corresponde al build 2021.1.. No se garantiza el correcto funcionamiento en versiones más recientes o antiguas.
 
 Para la medición de latencia de la operación euclidiana, se requiere utilizar un Analizador lógico externo, dado que no existen recursos suficientes para uno interno (ILA), y de que es mejor tener un dispositivo con mayor frecuencia de muestreo.
-$~$
-
-$~$
 
 IMPORTANTE: Es posible que hasta la fecha Vitis HLS tenga problemas para exportar a Bloque IP debido a un problema denominado "New Year's bug". Para solucionarlo, se deben seguir los pasos estipulados en el siguiente [link](https://support.xilinx.com/s/article/76960?language=en_US).
 
@@ -67,31 +59,22 @@ git clone https://github.com/Joptis/Tarea4_parte1
 <center><img src="Fotos/new_project_vivado.PNG" width="90%"></center>
       <center>Pantalla de inicio, creación de proyecto</center>
 
-$~$
-$~$
+
 
 En general se siguen los pasos por defecto para crear el proyecto. Es importante seleccionar la parte correcta correspondiente a la tarjeta *Nexys4 DDR*, la cual corresponde a *xc7a100tcsg324-1*.
-$~$
 
-$~$
 
 <center><img src="Fotos/default_part_vivado.PNG" width="80%"></center>
       <center>Selección de chip (Default Part)</center>
 
-$~$
 
-$~$
 
 3. Indicar el directorio de la ubicación del archivo .zip que contiene el bloque IP. Para ello, una vez abierto IP Catalog, clic derecho dentro de la interfaz y seleccionar "Add Repository".
-$~$
 
-$~$
 <center><img src="Fotos/Add_repo.PNG" width="80%"></center>
       <center>Pestaña para añadir repositorio</center>
 
-$~$
 
-$~$
 
 4. Añadir todos los archivos fuentes al proyecto de Vivado, los cuales se encuentra dentro del directorio "IP_block_test" del mismo repositorio. Project Manager->Add Sources->Add or Create design sources. Repetir lo mismo para el archivo de constrain, seleccionando "*Add or create constraints*".
 
@@ -100,14 +83,10 @@ $~$
 6. Una vez generado el *Bitstream*, en la pestaña saliente, seleccione la opción *Open Hardware Manager*. Establezca la conexión con la FPGA haciendo clic en la opción Auto Connect, luego Program Device. El hardware descrito por el se encuentra compilado en la tarjeta.
 
 7. Abrir MATLAB y correr el código de nombre *coprocessorTesting_Oficial.m*. Recuerde asignar la ubicación de todos los archivos .m en el PATH del programa. MATLAB avisa al usuario sobre ello la primera vez que se ejecuta un script. En la pestaña saliente seleccione *Add to Path*.	
-$~$
 
-$~$
 
 Cabe destacar que el bloque IP ya viene en el repositorio, por lo que no se requiere utilizar el Vitis HLS. En caso de querer comprobar los resultados presentes, se deben realizar los siguientes pasos:
-$~$
 
-$~$
 
 1. Crear un nuevo proyecto de Vitis HLS. Dentro de la pestaña al iniciar el programa, dar clic en "Create Project".
 2. Se entrará a una pestaña para agregar los Design Files. Dar clic en *Add Files*, y añadir todo archivo .cpp y .h, con excepción del archivo "EucTB.cpp", ya que es un archivo de simulación.
@@ -120,8 +99,7 @@ Si buscas contribuir al repositorio o para realizar consultas del codigo
 
 #
 ### Selección de pragmas
-$~$
-$~$
+
 
 - ARRAY PARTITION: Este pragma permite particionar vectores en secciones más pequeñas. EL desarrollo de la tarea 3 considera una memoria de carácter SIPO (*Singular Input Parallel Output*), por lo que, al querer evitar realizar cambios en la arquitectura se decide particionar los 2 vectores de forma completa, y así lograr una implementación idéntica.
 
@@ -135,9 +113,7 @@ Para validar el código/diseño realizado en Vitis HLS, se debe seguir el siguie
 C-Simulation -> Synthesis -> Export RTL
 
 La cosimulación no es considerada para el número de datos solicitado, debido a que el programa entrega falla (salida en FAIL) a pesar de estar funcionando correctamente en la FPGA, incluso para un menor número de datos. Se desconoce la razón de este falso positivo.
-$~$
-
-$~$
+ 
 ### Resultados simulación
 
 
@@ -153,8 +129,7 @@ Finished C simulation.
 No se presentan errores en las operaciones, al recibir el valor 0 como retorno de la simulación. Además se detalla el tiempo y recursos de la CPU para realizar la simulación. El número de pruebas realizado fueron un total de 100.
 
 ### Resultado síntesis
-$~$
-$~$
+
 
 Se lleva a cabo el proceso de síntesis para determinar la interfaz (puertos de entrada salida, forma de implementación, entre otros) y reinterpretar la funcionalidad del código C en uno de hardware. La terminal entrega la siguiente información una vez terminado este proceso:
 ```
@@ -195,20 +170,15 @@ Finished Export RTL/Implementation.
 ```
 
 Similar a los puntos anteriores, se reporta el tiempo requerido y los recursos usado por la CPU para realizar la operación.
-$~$
 
-$~$
 
 
 #### Implementación en Vivado
-$~$
-$~$
+
 
 
 Una vez realizada la integración del bloque euclidiano con el resto del *Processing Core*, la implementación entrega el siguiente reporte de recursos:
-$~$
 
-$~$
 
 
 | Recurso | N° en Uso | \%Uso |
@@ -232,9 +202,7 @@ Este reporte considera todos los módulos del Processing core en total. Para el 
 
 
 Este reporte en particular aparece siempre que no se tengan en caché la síntesis previa del mismo bloque IP. Para borrar esta caché se va a *Project settings*, y dentro de la sección IP->IP Cache, hacer clic en *Clear Cache*.
-$~$
 
-$~$
 
 Con respecto al tiempo requerido para realizar proceso de síntesis e implementación, el programa tarda 09:22 y 25:16, respectivamente en cada una. Esto se observa en la pestaña de *Design Runs*, la cual se accede por defecto, o mediante el buscador Quick Access. Estos tiempos difieren si se tiene un computador de alta gama o no se tiene muchos procesos abiertos en segundo plano.
 <center><img src="Fotos/Project_resources.PNG" width="80%"></center>
@@ -249,8 +217,7 @@ Con respecto al tiempo requerido para realizar proceso de síntesis e implementa
 ### Latencia
 Para medir la latencia se utilizan los 2 pines habilitados para medir la latencia del cálculo de la operación Euclidiana; sus ubicaciones se pueden apreciar en el archivo de *constraint*, correspondiente al archivo con extensión .xdr. El procedimiento de medición consiste en determinar el tiempo en que ocurre el canto de subida de la señal *ap\_start*, ligada a la señal *etrigger* del *decoder*, y el canto de subida de la señal ap\_done. Esta medición se realiza mediante el uso del Analizador Lógico presente en el Analog Discovery, ya que posee la suficiente frecuencia de muestreo para medir las señales a la frecuencia máxima obtenida.
 
-$~$
-$~$
+
 
 Se determina que el intervalo de tiempo entre ambos cantos de subida es de aproximadamente 15.61 us. Considerando una frecuencia de reloj de 70 MHz, la cual fue usada en el experimento. La cantidad de ciclos que tarda la distancia Euclidiana en calcularse está dado por la siguiente ecuación:
 
@@ -258,8 +225,7 @@ Se determina que el intervalo de tiempo entre ambos cantos de subida es de aprox
       <center>Cálculo de ciclos de latencia</center>
 
 
-$~$
-$~$
+
 
 Se obtiene que el cálculo tarda alrededor de 1092 ciclos en obtener la distancia euclidiana, lo cual se acerca a lo estimado por la tabla presente en la sección ["Resultado síntesis"](#resultado-síntesis)
 <center><img src="Fotos/Latency_measure_highlight.PNG" width="80%"></center>
